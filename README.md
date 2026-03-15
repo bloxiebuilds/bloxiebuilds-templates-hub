@@ -24,12 +24,13 @@
 | [card-ui-kit](https://github.com/bloxiebuilds/card-ui-kit-Templates) | Copy-paste card components |
 | [readme-starter-kit](https://github.com/bloxiebuilds/readme-starter-kit) | README building blocks |
 | [event-page-template](https://github.com/bloxiebuilds/event-page-template) | Event invite page with countdown |
+| [app-landing-page-template](https://github.com/bloxiebuilds/app-landing-page-template) | Bold app landing page with features and pricing |
 
 ---
 
 ## 📄 License
 
-MIT — free to use and modify. Reselling is not permitted.
+All Rights Reserved — the code and design of this hub may not be copied, modified, distributed, or used in any form without explicit written permission from bloxiebuilds. See [LICENSE](./LICENSE) for full details.
 
 ---
 
