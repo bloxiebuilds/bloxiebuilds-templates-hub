@@ -1,337 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>bloxiebuilds — Templates Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+# 🏠 bloxiebuilds-templates-hub
 
-    :root {
-      --bg: #0a0a0a;
-      --surface: #141414;
-      --border: #242424;
-      --text: #f0f0f0;
-      --muted: #666;
-      --accent: #38BDF8;
-    }
+> A homepage for all bloxiebuilds templates — browse, preview, and download in one place.
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg); color: var(--text);
-      min-height: 100vh; transition: background 0.3s, color 0.3s;
-    }
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Built With](https://img.shields.io/badge/built%20with-HTML%20%2F%20CSS%20%2F%20JS-orange)
+![GitHub Pages](https://img.shields.io/badge/deploy-GitHub%20Pages-brightgreen)
+![Made by](https://img.shields.io/badge/made%20by-bloxiebuilds-blueviolet)
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg); z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem; font-weight: 800;
-      color: var(--accent); letter-spacing: -0.5px;
-    }
-    .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .nav-link {
-      font-size: 0.85rem; color: var(--muted);
-      text-decoration: none; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: var(--text); }
-    #themeToggle {
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--text); padding: 0.35rem 0.85rem;
-      border-radius: 999px; cursor: pointer;
-      font-size: 0.8rem; font-family: 'DM Sans', sans-serif;
-      font-weight: 500; transition: all 0.2s;
-    }
-    #themeToggle:hover { border-color: var(--accent); }
+---
 
-    /* HERO */
-    .hero {
-      max-width: 860px; margin: 0 auto;
-      padding: 9rem 2rem 4rem;
-      text-align: center;
-    }
-    .hero-tag {
-      display: inline-block; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1.25rem;
-    }
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
-      font-weight: 800; letter-spacing: -2px;
-      line-height: 1.05; margin-bottom: 1.25rem;
-    }
-    .hero h1 span { color: var(--accent); }
-    .hero p {
-      font-size: 1.05rem; color: var(--muted);
-      max-width: 480px; margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .badge {
-      font-size: 0.75rem; padding: 5px 14px;
-      border-radius: 999px; border: 1px solid var(--border);
-      color: var(--muted); background: var(--surface);
-    }
+## 🔗 Live Site
 
-    /* GRID */
-    .section {
-      max-width: 960px; margin: 0 auto;
-      padding: 3rem 2rem 6rem;
-    }
-    .section-label {
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.5rem;
-    }
-    .section h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.8rem; font-weight: 800;
-      letter-spacing: -0.5px; margin-bottom: 2rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px; padding: 1.5rem;
-      display: flex; flex-direction: column;
-      gap: 10px; transition: all 0.25s;
-      text-decoration: none; color: var(--text);
-    }
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(56,189,248,0.07);
-    }
-    .card-icon { font-size: 1.75rem; }
-    .card-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem; font-weight: 800;
-    }
-    .card-desc {
-      font-size: 0.875rem; color: var(--muted);
-      line-height: 1.6; flex: 1;
-    }
-    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-    .tag {
-      font-size: 0.7rem; padding: 3px 10px;
-      border-radius: 999px; border: 1px solid var(--border);
-      color: var(--muted);
-    }
-    .card-footer {
-      display: flex; gap: 10px; margin-top: 6px;
-    }
-    .btn-sm {
-      font-size: 0.78rem; padding: 6px 14px;
-      border-radius: 999px; text-decoration: none;
-      font-weight: 500; transition: all 0.2s;
-      border: 1px solid var(--border); color: var(--muted);
-    }
-    .btn-sm:hover { border-color: var(--accent); color: var(--accent); }
-    .btn-sm.primary {
-      background: var(--accent); color: #0a0a0a;
-      border-color: var(--accent); font-weight: 600;
-    }
-    .btn-sm.primary:hover { opacity: 0.85; }
+👉 **[bloxiebuilds.github.io/bloxiebuilds-templates-hub](https://bloxiebuilds.github.io/bloxiebuilds-templates-hub)**
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem; text-align: center;
-      font-size: 0.78rem; color: var(--muted);
-    }
-    footer a { color: var(--muted); font-weight: 600; text-decoration: none; }
-    footer a:hover { color: var(--text); }
+---
 
-    @media (max-width: 600px) {
-      nav { padding: 1rem 1.25rem; }
-      .hero { padding: 7rem 1.25rem 3rem; }
-      .section { padding: 2rem 1.25rem 4rem; }
-    }
-  </style>
-</head>
-<body>
+## 🗂 Templates Featured
 
-  <nav>
-    <span class="nav-logo">bloxiebuilds.</span>
-    <div class="nav-right">
-      <a href="https://github.com/bloxiebuilds" class="nav-link" target="_blank">GitHub</a>
-      <button id="themeToggle">☀️ Light</button>
-    </div>
-  </nav>
+| Template | Description |
+|----------|-------------|
+| [myfoliokit](https://github.com/bloxiebuilds/myfoliokit-Portfolio-Template) | Personal portfolio template |
+| [LinkNest](https://github.com/bloxiebuilds/linknest-Link-In-Bio-Template) | Link-in-bio page |
+| [card-ui-kit](https://github.com/bloxiebuilds/card-ui-kit-Templates) | Copy-paste card components |
+| [readme-starter-kit](https://github.com/bloxiebuilds/readme-starter-kit) | README building blocks |
+| [event-page-template](https://github.com/bloxiebuilds/event-page-template) | Event invite page with countdown |
+| [app-landing-page-template](https://github.com/bloxiebuilds/app-landing-page-template) | Bold app landing page with features and pricing |
+| [coming-soon-page-template](https://github.com/bloxiebuilds/coming-soon-page-template) | Coming soon page with countdown and email signup |
 
-  <div class="hero">
-    <span class="hero-tag">✦ Free & Open Source</span>
-    <h1>Templates for<br/><span>everyone.</span></h1>
-    <p>Beautiful, no-code HTML templates you can clone, customize, and deploy in minutes. No frameworks. No dependencies.</p>
-    <div class="hero-badges">
-      <span class="badge">Free to use</span>
-      <span class="badge">MIT Licensed</span>
-      <span class="badge">No dependencies</span>
-      <span class="badge">GitHub Pages ready</span>
-    </div>
-  </div>
+---
 
-  <div class="section">
-    <p class="section-label">✦ The Collection</p>
-    <h2>All Templates</h2>
-    <div class="grid">
+## 📄 License
 
-      <!-- FolioKit -->
-      <div class="card">
-        <div class="card-icon">🗂</div>
-        <p class="card-name">myfoliokit</p>
-        <p class="card-desc">A clean personal portfolio template with dark/light mode, projects showcase, skills, and contact section.</p>
-        <div class="card-tags">
-          <span class="tag">Portfolio</span>
-          <span class="tag">Dark/Light</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://bloxiebuilds.github.io/myfoliokit-Portfolio-Template" class="btn-sm primary" target="_blank">Live Preview</a>
-          <a href="https://github.com/bloxiebuilds/myfoliokit-Portfolio-Template" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
+All Rights Reserved — the code and design of this hub may not be copied, modified, distributed, or used in any form without explicit written permission from bloxiebuilds. See [LICENSE](./LICENSE) for full details.
 
-      <!-- LinkNest -->
-      <div class="card">
-        <div class="card-icon">🔗</div>
-        <p class="card-name">LinkNest</p>
-        <p class="card-desc">A minimal link-in-bio page. Edit one config block to set your name, links, and theme. Deploy in minutes.</p>
-        <div class="card-tags">
-          <span class="tag">Link in Bio</span>
-          <span class="tag">Config-based</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://bloxiebuilds.github.io/linknest-Link-In-Bio-Template" class="btn-sm primary" target="_blank">Live Preview</a>
-          <a href="https://github.com/bloxiebuilds/linknest-Link-In-Bio-Template" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
+---
 
-      <!-- Card UI Kit -->
-      <div class="card">
-        <div class="card-icon">🃏</div>
-        <p class="card-name">card-ui-kit</p>
-        <p class="card-desc">6 beautiful, copy-paste HTML & CSS card components — profile, stat, pricing, notification, product, and link cards.</p>
-        <div class="card-tags">
-          <span class="tag">Components</span>
-          <span class="tag">Copy-paste</span>
-          <span class="tag">HTML/CSS</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://bloxiebuilds.github.io/card-ui-kit-Templates" class="btn-sm primary" target="_blank">Live Preview</a>
-          <a href="https://github.com/bloxiebuilds/card-ui-kit-Templates" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-      <!-- ReadMe Starter Kit -->
-      <div class="card">
-        <div class="card-icon">📝</div>
-        <p class="card-name">readme-starter-kit</p>
-        <p class="card-desc">Every README block you'll ever need — badges, feature tables, install guides, changelogs, and license footers.</p>
-        <div class="card-tags">
-          <span class="tag">README</span>
-          <span class="tag">Markdown</span>
-          <span class="tag">Docs</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/bloxiebuilds/readme-starter-kit" class="btn-sm primary" target="_blank">View Blocks</a>
-          <a href="https://github.com/bloxiebuilds/readme-starter-kit" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-      <!-- Event Page -->
-      <div class="card">
-        <div class="card-icon">🎉</div>
-        <p class="card-name">event-page-template</p>
-        <p class="card-desc">A stunning single-page event invite site with a live countdown timer, RSVP button, and dark/light mode.</p>
-        <div class="card-tags">
-          <span class="tag">Event</span>
-          <span class="tag">Countdown</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://bloxiebuilds.github.io/event-page-template" class="btn-sm primary" target="_blank">Live Preview</a>
-          <a href="https://github.com/bloxiebuilds/event-page-template" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-      <!-- App Landing Page -->
-      <div class="card">
-        <div class="card-icon">🚀</div>
-        <p class="card-name">app-landing-page-template</p>
-        <p class="card-desc">A bold app landing page with hero, features grid, pricing section, and screenshot placeholder.</p>
-        <div class="card-tags">
-          <span class="tag">Landing Page</span>
-          <span class="tag">Config-based</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://bloxiebuilds.github.io/app-landing-page-template" class="btn-sm primary" target="_blank">Live Preview</a>
-          <a href="https://github.com/bloxiebuilds/app-landing-page-template" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-      <!-- Coming Soon -->
-      <div class="card">
-        <div class="card-icon">🚧</div>
-        <p class="card-name">coming-soon-page-template</p>
-        <p class="card-desc">A bold coming soon page with a live countdown timer, email signup, and social links.</p>
-        <div class="card-tags">
-          <span class="tag">Coming Soon</span>
-          <span class="tag">Countdown</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://bloxiebuilds.github.io/coming-soon-page-template" class="btn-sm primary" target="_blank">Live Preview</a>
-          <a href="https://github.com/bloxiebuilds/coming-soon-page-template" class="btn-sm" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer>
-    <p>bloxiebuilds-templates-hub was made by <a href="https://github.com/bloxiebuilds" target="_blank">bloxiebuilds</a> · All templates are free & MIT licensed</p>
-  </footer>
-
-  <script>
-    var btn = document.getElementById('themeToggle');
-    var isDark = true;
-
-    function setDark() {
-      document.documentElement.style.setProperty('--bg',      '#0a0a0a');
-      document.documentElement.style.setProperty('--surface', '#141414');
-      document.documentElement.style.setProperty('--border',  '#242424');
-      document.documentElement.style.setProperty('--text',    '#f0f0f0');
-      document.documentElement.style.setProperty('--muted',   '#666666');
-      btn.textContent = '☀️ Light'; isDark = true;
-    }
-    function setLight() {
-      document.documentElement.style.setProperty('--bg',      '#f5f5f0');
-      document.documentElement.style.setProperty('--surface', '#ffffff');
-      document.documentElement.style.setProperty('--border',  '#e5e5e5');
-      document.documentElement.style.setProperty('--text',    '#111111');
-      document.documentElement.style.setProperty('--muted',   '#888888');
-      btn.textContent = '🌙 Dark'; isDark = false;
-    }
-
-    setDark();
-    btn.addEventListener('click', function() { isDark ? setLight() : setDark(); });
-  </script>
-
-</body>
-</html>
+<p align="center">bloxiebuilds-templates-hub was made by <a href="https://github.com/bloxiebuilds">bloxiebuilds</a></p>
